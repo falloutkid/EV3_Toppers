@@ -97,7 +97,7 @@ app: $(APPLDIR) prepare-obj-folder
 	@cd $(OBJDIR) && \
 	make module_cfg.h && \
 	make -j8 && \
-	cp app $(PWD)/app # && cp app $(PWD)/app-$(subst /,,$(app))
+	cp app $(PWD)/$(app)_ # && cp app $(PWD)/app-$(subst /,,$(app))
 
 endif
 
@@ -107,6 +107,7 @@ usage:
 
 clean:
 	rm -rf $(OBJDIR)
+	rm -rf $(app)_
 
 realclean: clean
 	rm -rf $(notdir $(OBJFILENAME)) uImage app $(LIBKERNELDIR)/libkernel.a
